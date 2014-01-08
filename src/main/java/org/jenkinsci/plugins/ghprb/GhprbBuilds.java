@@ -127,7 +127,9 @@ public class GhprbBuilds {
 				}
 			}
 
-			repo.addComment(c.getPullID(), msg.toString());
+			if (state != GHCommitState.SUCCESS) {
+				repo.addComment(c.getPullID(), msg.toString());
+			}
 		}
 
 		// close failed pull request automatically
